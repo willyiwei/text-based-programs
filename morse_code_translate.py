@@ -46,10 +46,21 @@ def encode(plain_text: str) -> str:
 
 
 def decode(morse_code: str) -> str:
-    pass
+    decrypt = ''
+    cipher_letter = ''
+    for code in morse_code:
+        if code == '.' or code == '-':
+            cipher_letter += code
+        elif code == ' ':
+            decrypt += list(MORSE_CODE_DICT.keys())[list(MORSE_CODE_DICT.values()).index(cipher_letter)]
+            cipher_letter = ''
+        else:
+            print(f"Error: '{code}' is not a valid morse code!")
+
+    return decrypt
 
 
-def test():
+def test_encoding():
     # testcase1 - normal case
     test1 = "I use this sentence to test translation to Morse Code."
     print(encode(test1))
@@ -70,4 +81,6 @@ def test():
 
 
 if __name__ == '__main__':
-    test()
+    test_code = 's'
+    result_text = decode(test_code)
+    print(result_text)
