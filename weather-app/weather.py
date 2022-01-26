@@ -177,10 +177,4 @@ if __name__ == '__main__':
     user_args = read_user_cli_args()
     query_url = build_weather_query(user_args.city, imperial=user_args.imperial)
     weather_data = get_weather_data(query_url)
-    # pp(weather_data)
-    # print(
-    #     f"{weather_data['name']}: "
-    #     f"{weather_data['weather'][0]['description']} "
-    #     f"(temp: {weather_data['main']['temp']})"
-    # )
     display_weather_info(weather_data, user_args.imperial)
