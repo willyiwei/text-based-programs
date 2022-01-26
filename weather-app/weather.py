@@ -51,7 +51,7 @@ def read_user_cli_args():
         description="gets weather and temperature information for a city"
     )
 
-    # define the "city" argument that’ll take one or many inputs separated by whitespace.
+    # define the "city" argument that'll take one or many inputs separated by whitespace.
     # By setting the number of arguments (nargs) to "+",
     # you allow users to pass city names that are made up of more than one word, such as New York.
     parser.add_argument(
@@ -63,7 +63,7 @@ def read_user_cli_args():
 
     # define the optional Boolean argument imperial.
     # You set the action keyword argument to "store_true",
-    # which means that the value for imperial will be True if users add the optional flag, and False if they don’t.
+    # which means that the value for imperial will be True if users add the optional flag, and False if they don't.
     parser.add_argument(
         "-i",
         "--imperial",
@@ -74,7 +74,7 @@ def read_user_cli_args():
     return parser.parse_args()
 
 
-def build_weather_query(city_input: list, imperial=False):
+def build_weather_query(city_input, imperial=False):
     """Builds the URL for an API request to OpenWeather's weather API.
 
     Args:
@@ -131,11 +131,11 @@ def _select_weather_display_params(weather_id) -> tuple:
     elif weather_id in RAIN:
         display_params = ("💦", style.BLUE)
     elif weather_id in SNOW:
-        display_params = ("⛄️", style.WHITE)
+        display_params = ("️❄️", style.WHITE)
     elif weather_id in ATMOSPHERE:
         display_params = ("🌀", style.BLUE)
     elif weather_id in CLEAR:
-        display_params = ("🔆", style.YELLOW)
+        display_params = ("☀️", style.YELLOW)
     elif weather_id in CLOUDY:
         display_params = ("💨", style.WHITE)
     else:  # In case the API adds new weather codes
